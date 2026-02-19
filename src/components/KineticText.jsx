@@ -1,27 +1,24 @@
-import React, { useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import React from 'react'
+import { motion } from 'framer-motion'
 
 const KineticText = ({ text, direction = 'left', baseVelocity = -2, variant = 'outline' }) => {
-    const containerRef = useRef(null)
-    const { scrollYProgress } = useScroll()
-
-    const x = useTransform(
-        scrollYProgress,
-        [0, 1],
-        direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%']
-    )
-
-    const springX = useSpring(x, { damping: 50, stiffness: 100 })
-
     const repeatedText = `${text} • `.repeat(8)
 
     /* "lime" variant = solid lime BG + dark text (like the HTML marquee)
        "outline" variant = stroke text on transparent BG (original) */
     const isLime = variant === 'lime'
 
+    /* Animate from 0% to -50% (or reverse) in a seamless loop.
+       Because the text is repeated 8×, shifting by 50% creates a
+       perfect wrap-around — the second half is identical to the first. */
+    const from = direction === 'left' ? '0%' : '-50%'
+    const to = direction === 'left' ? '-50%' : '0%'
+
+    /* Speed: lower baseVelocity → faster. Default ≈ 30s per full cycle. */
+    const duration = Math.abs(30 / (baseVelocity || -2))
+
     return (
         <div
-            ref={containerRef}
             style={{
                 overflow: 'hidden',
                 whiteSpace: 'nowrap',
@@ -34,7 +31,16 @@ const KineticText = ({ text, direction = 'left', baseVelocity = -2, variant = 'o
             }}
         >
             <motion.div
-                style={{ x: springX, display: 'inline-block' }}
+                animate={{ x: [from, to] }}
+                transition={{
+                    x: {
+                        repeat: Infinity,
+                        repeatType: 'loop',
+                        duration,
+                        ease: 'linear',
+                    },
+                }}
+                style={{ display: 'inline-block' }}
             >
                 <span
                     style={{
