@@ -60,8 +60,10 @@
     transition: color 0.3s ease;
 }
 
-.navbar__link:hover {
-    color: var(--text-primary);
+@media (hover: hover) {
+    .navbar__link:hover {
+        color: var(--text-primary);
+    }
 }
 
 .navbar__link--active {
@@ -96,10 +98,12 @@
     transition: all 0.3s ease;
 }
 
-.navbar__cta:hover {
-    background: var(--lime);
-    color: var(--bg-primary);
-    border-color: var(--lime);
+@media (hover: hover) {
+    .navbar__cta:hover {
+        background: var(--lime);
+        color: var(--bg-primary);
+        border-color: var(--lime);
+    }
 }
 
 .navbar__mobile-toggle {
@@ -134,7 +138,12 @@
     letter-spacing: -0.03em;
 }
 
-.navbar__mobile-link:hover,
+@media (hover: hover) {
+    .navbar__mobile-link:hover {
+        color: var(--lime);
+    }
+}
+
 .navbar__mobile-link--active {
     color: var(--lime);
 }

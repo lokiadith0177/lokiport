@@ -83,10 +83,18 @@
     transition: all 0.4s ease;
 }
 
-.philosophy-card:hover .philosophy-card__number {
-    color: var(--lime);
-    text-shadow: 0 0 30px rgba(204, 255, 0, 0.4);
-    transform: scale(1.05);
+@media (hover: hover) {
+    .philosophy-card:hover .philosophy-card__number {
+        color: var(--lime);
+        text-shadow: 0 0 30px rgba(204, 255, 0, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+@media (hover: none) {
+    .philosophy-card__number {
+        color: var(--lime);
+    }
 }
 
 .philosophy-card h3 {
@@ -106,9 +114,17 @@
     font-weight: 500;
 }
 
-.philosophy-card:hover .highlight-text {
-    color: var(--lime);
-    text-shadow: 0 0 10px rgba(204, 255, 0, 0.2);
+@media (hover: hover) {
+    .philosophy-card:hover .highlight-text {
+        color: var(--lime);
+        text-shadow: 0 0 10px rgba(204, 255, 0, 0.2);
+    }
+}
+
+@media (hover: none) {
+    .highlight-text {
+        color: var(--lime);
+    }
 }
 
 /* ===== Timeline ===== */

@@ -94,10 +94,12 @@
     color: var(--text-secondary) !important;
 }
 
-.btn-ghost:hover {
-    border-color: var(--text-primary) !important;
-    color: var(--text-primary) !important;
-    background: transparent !important;
+@media (hover: hover) {
+    .btn-ghost:hover {
+        border-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        background: transparent !important;
+    }
 }
 
 /* Levitating Icons (drift + orbit) */
@@ -211,9 +213,11 @@
     transition: transform 0.5s ease;
 }
 
-.about-mini__image-wrap:hover .about-mini__image-decoration {
-    transform: translate(15px, 15px);
-    opacity: 0.6;
+@media (hover: hover) {
+    .about-mini__image-wrap:hover .about-mini__image-decoration {
+        transform: translate(15px, 15px);
+        opacity: 0.6;
+    }
 }
 
 .about-mini__title {
@@ -250,10 +254,20 @@
     transition: all 0.3s ease;
 }
 
-.card:hover .card-tag {
-    background: var(--cobalt);
-    color: white;
-    border-color: var(--cobalt);
+@media (hover: hover) {
+    .card:hover .card-tag {
+        background: var(--cobalt);
+        color: white;
+        border-color: var(--cobalt);
+    }
+}
+
+@media (hover: none) {
+    .card-tag {
+        background: var(--cobalt);
+        color: white;
+        border-color: var(--cobalt);
+    }
 }
 
 .bento-featured__content h3 {

@@ -33,9 +33,11 @@
     text-transform: uppercase;
 }
 
-.filter-pill:hover {
-    border-color: var(--text-primary) !important;
-    color: var(--text-primary) !important;
+@media (hover: hover) {
+    .filter-pill:hover {
+        border-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+    }
 }
 
 .filter-pill--active {
@@ -76,8 +78,10 @@
     transition: transform 0.3s ease;
 }
 
-.card:hover .project-card__icon {
-    transform: scale(1.1) rotate(-5deg);
+@media (hover: hover) {
+    .card:hover .project-card__icon {
+        transform: scale(1.1) rotate(-5deg);
+    }
 }
 
 .project-card__links {
@@ -97,9 +101,18 @@
     transition: all 0.3s ease;
 }
 
-.project-card__link:hover {
-    border-color: var(--lime);
-    color: var(--lime);
+@media (hover: hover) {
+    .project-card__link:hover {
+        border-color: var(--lime);
+        color: var(--lime);
+    }
+}
+
+@media (hover: none) {
+    .project-card__link {
+        border-color: var(--lime);
+        color: var(--lime);
+    }
 }
 
 .project-card__title {

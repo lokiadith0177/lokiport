@@ -147,9 +147,17 @@
     transition: all 0.3s ease;
 }
 
-.card:hover .contact-info-card__arrow {
-    color: var(--lime);
-    transform: translate(2px, -2px);
+@media (hover: hover) {
+    .card:hover .contact-info-card__arrow {
+        color: var(--lime);
+        transform: translate(2px, -2px);
+    }
+}
+
+@media (hover: none) {
+    .contact-info-card__arrow {
+        color: var(--lime);
+    }
 }
 
 /* Status */
