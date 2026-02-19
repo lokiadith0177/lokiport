@@ -15,7 +15,7 @@ const KineticText = ({ text, direction = 'left', baseVelocity = -2, variant = 'o
     const to = direction === 'left' ? '-50%' : '0%'
 
     /* Speed: lower baseVelocity → faster. Default ≈ 30s per full cycle. */
-    const duration = Math.abs(30 / (baseVelocity || -2))
+    const duration = Math.abs(60 / (baseVelocity || -2))
 
     return (
         <div
